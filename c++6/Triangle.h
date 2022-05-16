@@ -5,18 +5,21 @@ using namespace std;
 struct point {
 	double x;
 	double y;
+
+
 };
 class Triangle
 {
-	
+
 protected:
 	point points[3];
 	double angleA, angleB, angleC;
 	double lenght(const point&, const point&);
 	double Pi = 3.14159;
 public:
-	
+
 	Triangle() {
+
 		points[0].x = 0;
 		points[1].x = 0;
 		points[2].x = 0;
@@ -37,9 +40,10 @@ public:
 
 		points[2].x = (tan(angleA) * A.x - A.y - tan(angleB) * B.x + B.y) / (tan(angleA) - tan(angleB));
 		points[2].y = tan(angleA) * (points[2].x - A.x) + A.y;
+	
+
 	}
 
-	
 	bool PointOnBorder(const point&);
 	bool CrosseOrdinate();
 	bool CrosseAbscissa();

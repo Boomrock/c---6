@@ -2,8 +2,9 @@
 //
 
 #include <iostream>
-#include "Triangle.h"
+
 #include "NewTriangle.h"
+
 
 using namespace std;
 void createTriangle(Triangle&);
@@ -12,7 +13,7 @@ int main()
 	setlocale(LC_ALL, "Russian");
 	bool exit = true;
 	Triangle tr;
-	NewTriangle newTriangle = tr;
+	NewTriangle tre = tr;
 	point t;
 	int forSwitch, lineSegmentNumber;
 	while (exit) {
