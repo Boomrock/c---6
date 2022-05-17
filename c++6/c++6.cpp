@@ -8,15 +8,19 @@
 
 using namespace std;
 void createTriangle(Triangle&);
+
 int main()
 {
 	setlocale(LC_ALL, "Russian");
-	bool exit = true;
-	Triangle tr;
-	NewTriangle tre = tr;
-	point t;
+	bool exit = false;
+	Triangle triangle;
+	NewTriangle newTriangle;
+	point t, center;
+	double angle;
 	int forSwitch, lineSegmentNumber;
-	while (exit) {
+
+	while (!exit) {
+
 		cout << "1. создать треугольник\n";
 		cout << "2. проверка точки на пренадлженость к границам\n";
 		cout << "3. длина одной из сторон\n";
@@ -25,7 +29,6 @@ int main()
 		cout << "6. вывод координат в консоль\n";
 		cout << "7. поворот фигуры(6 лабораторная)\n";
 		cout << "8. перенос центра(6 лабораторная)\n";
-
 		cout << "9. выход из программы \n";
 
 		cout << "введите число\n";
@@ -35,12 +38,13 @@ int main()
 		switch (forSwitch)
 		{
 		case 1:
-			createTriangle(tr);
+			createTriangle(triangle);
+			newTriangle = triangle;
 			break;
 		case 2:
 			cout << "введите координаты точки: \n";
 			cout << "t.x: "; cin >> t.x; cout << " t.y:"; cin >> t.y;
-			if (tr.PointOnBorder(t)) {
+			if (triangle.PointOnBorder(t)) {
 				cout << "точка прeнадлежит границам \n";
 			}
 			else
@@ -52,10 +56,10 @@ int main()
 		case 3:
 			cout << "длину какой стороны найти ab - 1, ac - 2, bc - 3\n";
 			cin >> lineSegmentNumber;
-			cout << tr.GetLenght(lineSegmentNumber)<<"\n";
+			cout << triangle.GetLenght(lineSegmentNumber)<<"\n";
 			break;
 		case 4:
-			if (tr.CrosseOrdinate()) {
+			if (triangle.CrosseOrdinate()) {
 				cout << "пересекает \n";
 			}
 			else
@@ -64,7 +68,7 @@ int main()
 			}
 			break;
 		case 5:
-			if (tr.CrosseAbscissa()) {
+			if (triangle.CrosseAbscissa()) {
 				cout << "пересекает \n";
 			}
 			else
@@ -73,17 +77,28 @@ int main()
 			}
 			break;
 		case 6:
-			tr.WtiteInConsole();
+
+			triangle.WtiteInConsole();
 			break;
 		case 7:
-			
+			cout << "введите угол: "; 
+			cin >> angle;
+			newTriangle.Rotate(angle);
+			cout << "перевернуто";
+
 
 			break;
 		case 8:
-			exit = false;
+			cout << "введите новый центр фигуры: \n";
+			cout << "x:"; 
+			cin >> center.x; 
+			cout << "у:";
+			cin >> center.y;
+			newTriangle.SetCenter(center);
+			cout << "перемещено";
 			break;
 		case 9:
-			exit = false;
+			exit = true;
 			break;
 		default:
 			break;
