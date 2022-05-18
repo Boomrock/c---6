@@ -25,3 +25,7 @@ void NewTriangle::Rotate(double angle) {
 		points[i].y = center.y + (xShifted * sin(angle) + yShifted * cos(angle));
 	}
 }
+void NewTriangle::ResetCenter() {
+	center.x = reset.x;
+	center.y = reset.y;
+}
